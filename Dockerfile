@@ -2,7 +2,7 @@ FROM opennms/openjdk:8u121-jdk
 
 MAINTAINER Ronny Trommer <ronny@opennms.org>
 
-ARG OPENNMS_VERSION=develop
+ARG OPENNMS_VERSION=branches-release-19.0.0
 
 ENV MINION_HOME /opt/minion
 ENV MINION_LOCATION MINION
