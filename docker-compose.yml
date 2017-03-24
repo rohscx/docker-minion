@@ -16,8 +16,6 @@ services:
     deploy:
       mode: replicated
       replicas: 1
-    healthcheck:
-      test: ["NONE"]
 volumes:
   minion_etc:
     driver: local-persist
