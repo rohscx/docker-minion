@@ -16,6 +16,8 @@ services:
     deploy:
       mode: replicated
       replicas: 1
+      restart_policy:
+        delay: s60
 volumes:
   minion_etc:
     driver: local-persist
