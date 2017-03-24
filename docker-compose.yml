@@ -5,8 +5,8 @@ services:
     env_file:
       - .minion.env
     volumes:
-        - minion:/opt/minion/etc
-        - minion:/opt/minion/data
+        - minion_etc:/opt/minion/etc
+        - minion_data:/opt/minion/data
     command: ["-f"]
     ports:
       - "8201:8201"
@@ -17,8 +17,13 @@ services:
       mode: replicated
       replicas: 1
 volumes:
-  mysql:
+  minion_etc:
     driver: local-persist
     driver_opts:
-      mountpoint: "/swarm/volumes/minion_1"
-      name: "minion"   
+      mountpoint: "/swarm/volumes/minion_1/etc"
+      name: "minion_etc"   
+  minion_data:
+    driver: local-persist
+    driver_opts:
+      mountpoint: "/swarm/volumes/minion_1/data"
+      name: "minion_data" 
