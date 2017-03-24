@@ -17,9 +17,7 @@ services:
       mode: replicated
       replicas: 1
     healthcheck:
-      test: ["CMD", "/opt/minion/bin/client", "-ping", "|", " grep -Pzo", "(?s).*OK.*.OK.*", "|| ", "exit 1"]
-      interval: 160m
-      timeout: 160m
+      test:
 volumes:
   minion_etc:
     driver: local-persist
