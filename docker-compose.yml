@@ -11,7 +11,7 @@ services:
     ports:
       - "8201:8201"
       - "18980:18980"
-      - "162:1162/udp"
+      - "1162:162/udp"
       - "514:514/udp"
     deploy:
       mode: replicated
