@@ -1,6 +1,6 @@
 FROM opennms/openjdk:8u121-jdk
 
-MAINTAINER Ronny Trommer <ronny@opennms.org>
+MAINTAINER Rohscx <emailaddress.com>
 
 ARG MINION_VERSION=develop
 
@@ -15,13 +15,14 @@ RUN yum -y --setopt=tsflags=nodocs update && \
     rpm -Uvh http://yum.opennms.org/repofiles/opennms-repo-${MINION_VERSION}-rhel7.noarch.rpm && \
     rpm --import http://yum.opennms.org/OPENNMS-GPG-KEY && \
     yum -y install opennms-minion && \
+    yum -y install net-tools-2.0-0.17.20131004git.el7.x86_64 && \
     yum clean all
 
 COPY ./docker-entrypoint.sh /
 
 VOLUME [ "/opt/minion/etc", "/opt/minion/data" ]
 
-HEALTHCHECK --interval=10s --timeout=3s CMD /opt/minion/bin/client ping | grep -Pzo "(?s).*OK.*.OK.*" || exit 1
+#HEALTHCHECK --interval=10s --timeout=3s CMD /opt/minion/bin/client ping | grep -Pzo "(?s).*OK.*.OK.*" || exit 1
 
 ENTRYPOINT [ "/docker-entrypoint.sh" ]
 
