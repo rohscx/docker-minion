@@ -35,4 +35,4 @@ CMD [ "-h" ]
 ## -- OpenNMS JMX        18980/TCP
 ## -- SNMP Trapd           162/UDP
 ## -- Syslog               514/UDP
-EXPOSE 8201 18980 162/udp 514/udp
+EXPOSE 8201 18980 1162/udp 1514/udp
